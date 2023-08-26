@@ -1,0 +1,1437 @@
+{
+  "metaData": { "version": "1.9.7", "versionNumber": 67847 },
+  "projectSettings": {
+    "containers": { "dashboardSettings": {}, "customDefinitions": {} }
+  },
+  "dashboardManager": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+  "parrots": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+  "layout": {
+    "mainLayout": {
+      "type": 1,
+      "width": 1900,
+      "height": 1012,
+      "direction": 2,
+      "shifters": [
+        {
+          "type": 1,
+          "width": 1900,
+          "height": 1012,
+          "direction": 2,
+          "shifters": [
+            {
+              "type": 1,
+              "width": 1900,
+              "height": 710,
+              "direction": 1,
+              "shifters": [
+                {
+                  "type": 1,
+                  "width": 229,
+                  "height": 710,
+                  "direction": 2,
+                  "shifters": [
+                    {
+                      "type": 0,
+                      "width": 229,
+                      "height": 364,
+                      "currentContent": "Modules",
+                      "tabs": [{ "name": "Modules" }]
+                    },
+                    {
+                      "type": 0,
+                      "width": 229,
+                      "height": 340,
+                      "currentContent": "Custom Variables",
+                      "tabs": [{ "name": "Custom Variables" }]
+                    }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 1208,
+                  "height": 710,
+                  "currentContent": "State Machine",
+                  "tabs": [
+                    { "name": "State Machine" },
+                    { "name": "Dashboard" },
+                    { "name": "Module Router" },
+                    { "name": "Morpher" }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 451,
+                  "height": 710,
+                  "currentContent": "Inspector",
+                  "tabs": [{ "name": "Inspector" }]
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "width": 1900,
+              "height": 296,
+              "direction": 1,
+              "shifters": [
+                {
+                  "type": 0,
+                  "width": 748,
+                  "height": 296,
+                  "currentContent": "Help",
+                  "tabs": [
+                    { "name": "Help" },
+                    { "name": "Warnings" },
+                    { "name": "Sequence Editor" }
+                  ]
+                },
+                {
+                  "type": 0,
+                  "width": 1146,
+                  "height": 296,
+                  "currentContent": "Logger",
+                  "tabs": [{ "name": "Logger" }]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "windows": null
+  },
+  "modules": {
+    "items": [
+      {
+        "parameters": [
+          { "value": true, "controlAddress": "/enabled" },
+          { "value": false, "controlAddress": "/logIncoming" },
+          { "value": false, "controlAddress": "/logOutgoing" }
+        ],
+        "niceName": "X-touch-One",
+        "type": "MIDI",
+        "scripts": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+        "params": {
+          "parameters": [
+            { "value": false, "controlAddress": "/useHierarchy" },
+            { "value": true, "controlAddress": "/autoFeedback" },
+            { "value": ["28-0", "28-0"], "controlAddress": "/devices" }
+          ],
+          "containers": {
+            "pass_through": {
+              "parameters": [
+                {
+                  "value": "/modules/x_touch_One",
+                  "controlAddress": "/outputModule",
+                  "enabled": true,
+                  "type": "Target",
+                  "niceName": "Output module",
+                  "customizable": false,
+                  "removable": true,
+                  "description": "Target module to send the raw data to",
+                  "hideInEditor": false,
+                  "feedbackOnly": false
+                }
+              ]
+            }
+          }
+        },
+        "templates": {
+          "items": [
+            {
+              "niceName": "Set Fader Position",
+              "type": "BaseItem",
+              "menuPath": "",
+              "commandType": "Controller Change",
+              "params": [
+                {
+                  "parameters": [
+                    {
+                      "value": 1,
+                      "hexMode": false,
+                      "controlAddress": "/channel"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "default": true,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Channel"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": 70,
+                      "hexMode": false,
+                      "controlAddress": "/ccNumber"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "default": true,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "CC Number"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": 0,
+                      "hexMode": false,
+                      "controlAddress": "/ccValue"
+                    },
+                    {
+                      "value": true,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "default": true,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "CC Value"
+                }
+              ]
+            }
+          ],
+          "viewOffset": [0, 0],
+          "viewZoom": 1.0
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 0,
+              "MIDIType": 0,
+              "controlAddress": "/_1_C_2",
+              "type": "MIDI Value",
+              "niceName": "[1] C-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : C-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 1,
+              "MIDIType": 0,
+              "controlAddress": "/_1_C#_2",
+              "type": "MIDI Value",
+              "niceName": "[1] C#-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : C#-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 2,
+              "MIDIType": 0,
+              "controlAddress": "/_1_D_2",
+              "type": "MIDI Value",
+              "niceName": "[1] D-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : D-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 3,
+              "MIDIType": 0,
+              "controlAddress": "/_1_D#_2",
+              "type": "MIDI Value",
+              "niceName": "[1] D#-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : D#-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 4,
+              "MIDIType": 0,
+              "controlAddress": "/_1_E_2",
+              "type": "MIDI Value",
+              "niceName": "[1] E-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : E-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 5,
+              "MIDIType": 0,
+              "controlAddress": "/_1_F_2",
+              "type": "MIDI Value",
+              "niceName": "[1] F-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : F-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 6,
+              "MIDIType": 0,
+              "controlAddress": "/_1_F#_2",
+              "type": "MIDI Value",
+              "niceName": "[1] F#-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : F#-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 7,
+              "MIDIType": 0,
+              "controlAddress": "/_1_G_2",
+              "type": "MIDI Value",
+              "niceName": "[1] G-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : G-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 8,
+              "MIDIType": 0,
+              "controlAddress": "/_1_G#_2",
+              "type": "MIDI Value",
+              "niceName": "[1] G#-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : G#-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 9,
+              "MIDIType": 0,
+              "controlAddress": "/_1_A_2",
+              "type": "MIDI Value",
+              "niceName": "[1] A-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : A-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 10,
+              "MIDIType": 0,
+              "controlAddress": "/_1_A#_2",
+              "type": "MIDI Value",
+              "niceName": "[1] A#-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : A#-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 11,
+              "MIDIType": 0,
+              "controlAddress": "/_1_B_2",
+              "type": "MIDI Value",
+              "niceName": "[1] B-2",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : B-2",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 12,
+              "MIDIType": 0,
+              "controlAddress": "/_1_C_1",
+              "type": "MIDI Value",
+              "niceName": "[1] C-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : C-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 16,
+              "MIDIType": 0,
+              "controlAddress": "/_1_E_1",
+              "type": "MIDI Value",
+              "niceName": "[1] E-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : E-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 17,
+              "MIDIType": 0,
+              "controlAddress": "/_1_F_1",
+              "type": "MIDI Value",
+              "niceName": "[1] F-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : F-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 18,
+              "MIDIType": 0,
+              "controlAddress": "/_1_F#_1",
+              "type": "MIDI Value",
+              "niceName": "[1] F#-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : F#-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 19,
+              "MIDIType": 0,
+              "controlAddress": "/_1_G_1",
+              "type": "MIDI Value",
+              "niceName": "[1] G-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : G-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 127,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 20,
+              "MIDIType": 0,
+              "controlAddress": "/_1_G#_1",
+              "type": "MIDI Value",
+              "niceName": "[1] G#-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : G#-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 21,
+              "MIDIType": 0,
+              "controlAddress": "/_1_A_1",
+              "type": "MIDI Value",
+              "niceName": "[1] A-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : A-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 22,
+              "MIDIType": 0,
+              "controlAddress": "/_1_A#_1",
+              "type": "MIDI Value",
+              "niceName": "[1] A#-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : A#-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 23,
+              "MIDIType": 0,
+              "controlAddress": "/_1_B_1",
+              "type": "MIDI Value",
+              "niceName": "[1] B-1",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : B-1",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 24,
+              "MIDIType": 0,
+              "controlAddress": "/_1_C0",
+              "type": "MIDI Value",
+              "niceName": "[1] C0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : C0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 25,
+              "MIDIType": 0,
+              "controlAddress": "/_1_C#0",
+              "type": "MIDI Value",
+              "niceName": "[1] C#0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : C#0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 26,
+              "MIDIType": 0,
+              "controlAddress": "/_1_D0",
+              "type": "MIDI Value",
+              "niceName": "[1] D0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : D0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 27,
+              "MIDIType": 0,
+              "controlAddress": "/_1_D#0",
+              "type": "MIDI Value",
+              "niceName": "[1] D#0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : D#0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 28,
+              "MIDIType": 0,
+              "controlAddress": "/_1_E0",
+              "type": "MIDI Value",
+              "niceName": "[1] E0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : E0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 29,
+              "MIDIType": 0,
+              "controlAddress": "/_1_F0",
+              "type": "MIDI Value",
+              "niceName": "[1] F0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : F0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 30,
+              "MIDIType": 0,
+              "controlAddress": "/_1_F#0",
+              "type": "MIDI Value",
+              "niceName": "[1] F#0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : F#0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 31,
+              "MIDIType": 0,
+              "controlAddress": "/_1_G0",
+              "type": "MIDI Value",
+              "niceName": "[1] G0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : G0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 32,
+              "MIDIType": 0,
+              "controlAddress": "/_1_G#0",
+              "type": "MIDI Value",
+              "niceName": "[1] G#0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : G#0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 33,
+              "MIDIType": 0,
+              "controlAddress": "/_1_A0",
+              "type": "MIDI Value",
+              "niceName": "[1] A0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : A0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 34,
+              "MIDIType": 0,
+              "controlAddress": "/_1_A#0",
+              "type": "MIDI Value",
+              "niceName": "[1] A#0",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : A#0",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 0,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 110,
+              "MIDIType": 0,
+              "controlAddress": "/_1_D7",
+              "type": "MIDI Value",
+              "niceName": "[1] D7",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : D7",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 86,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 70,
+              "MIDIType": 2,
+              "controlAddress": "/_1_CC70",
+              "type": "MIDI Value",
+              "niceName": "[1] CC70",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : CC70",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 61,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 80,
+              "MIDIType": 2,
+              "controlAddress": "/_1_CC80",
+              "type": "MIDI Value",
+              "niceName": "[1] CC80",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : CC80",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": 1,
+              "minValue": 0,
+              "maxValue": 127,
+              "default": 0,
+              "hexMode": false,
+              "channel": 1,
+              "pitchOrNumber": 88,
+              "MIDIType": 2,
+              "controlAddress": "/_1_CC88",
+              "type": "MIDI Value",
+              "niceName": "[1] CC88",
+              "customizable": false,
+              "removable": true,
+              "description": "Channel 1 : CC88",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            }
+          ],
+          "editorIsCollapsed": true,
+          "containers": {
+            "tempo": { "editorIsCollapsed": true },
+            "mtc": { "editorIsCollapsed": true }
+          }
+        }
+      },
+      {
+        "parameters": [
+          { "value": true, "controlAddress": "/enabled" },
+          { "value": false, "controlAddress": "/logIncoming" }
+        ],
+        "niceName": "Sound Card",
+        "type": "Sound Card",
+        "scripts": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+        "params": {
+          "parameters": [
+            { "value": false, "controlAddress": "/keepValues" },
+            { "value": 1.0, "controlAddress": "/outVolume" }
+          ],
+          "containers": {
+            "inputVolumes": { "editorIsCollapsed": true },
+            "monitor": {
+              "parameters": [{ "value": false, "controlAddress": "/enabled" }],
+              "editorIsCollapsed": true
+            },
+            "fftAnalysis": {
+              "parameters": [{ "value": false, "controlAddress": "/enabled" }],
+              "editorIsCollapsed": true,
+              "viewOffset": [0, 0],
+              "viewZoom": 1.0
+            },
+            "ltc": {
+              "parameters": [{ "value": false, "controlAddress": "/enabled" }],
+              "editorIsCollapsed": true
+            }
+          }
+        },
+        "templates": {
+          "items": [
+            {
+              "niceName": "Play Tick",
+              "type": "BaseItem",
+              "menuPath": "",
+              "commandType": "Play audio file",
+              "params": [
+                {
+                  "parameters": [
+                    {
+                      "value": "/home/neolectron/Music/tick.mp3",
+                      "controlAddress": "/audioFile"
+                    },
+                    {
+                      "value": true,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "default": true,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Audio file"
+                }
+              ]
+            }
+          ],
+          "viewOffset": [0, 0],
+          "viewZoom": 1.0
+        },
+        "audioSettings": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<DEVICESETUP deviceType=\"JACK\" audioOutputDeviceName=\"Starship/Matisse HD Audio Controller Analog Stereo\"\r\n             audioInputDeviceName=\"\" audioDeviceRate=\"48000.0\"/>\r\n",
+        "analyzer": {
+          "parameters": [{ "value": false, "controlAddress": "/enabled" }],
+          "editorIsCollapsed": true,
+          "viewOffset": [0, 0],
+          "viewZoom": 1.0
+        }
+      },
+      {
+        "niceName": "OS",
+        "type": "OS",
+        "scripts": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+        "params": { "containers": { "appControl": {} } },
+        "templates": { "viewOffset": [0, 0], "viewZoom": 1.0 }
+      }
+    ],
+    "viewOffset": [0, 0],
+    "viewZoom": 1.0
+  },
+  "customVariables": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+  "states": {
+    "items": [
+      {
+        "parameters": [
+          { "value": [-324.0, -895.0], "controlAddress": "/viewUIPosition" },
+          { "value": [313.0, 236.0], "controlAddress": "/viewUISize" },
+          { "value": true, "controlAddress": "/active" }
+        ],
+        "niceName": "onXtouchMidiInput",
+        "type": "State",
+        "processors": {
+          "items": [
+            {
+              "niceName": "onPlayPause",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/x_touch_One/values/_1_B_1",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": 127,
+                          "hexMode": false,
+                          "controlAddress": "/reference"
+                        }
+                      ],
+                      "hideInEditor": true
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "Consequence",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",
+                          "controlAddress": "/command"
+                        }
+                      ],
+                      "paramLinks": {}
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequencesOff": { "viewOffset": [0, 0], "viewZoom": 1.0 }
+            },
+            {
+              "niceName": "onPrev",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/x_touch_One/values/_1_G#_1",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": 127,
+                          "hexMode": false,
+                          "controlAddress": "/reference"
+                        }
+                      ],
+                      "hideInEditor": true
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "Consequence",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous",
+                          "controlAddress": "/command"
+                        }
+                      ],
+                      "paramLinks": {}
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequencesOff": { "viewOffset": [0, 0], "viewZoom": 1.0 }
+            },
+            {
+              "niceName": "onNext",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/x_touch_One/values/_1_A_1",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": 127,
+                          "hexMode": false,
+                          "controlAddress": "/reference"
+                        }
+                      ],
+                      "hideInEditor": true
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "Consequence",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next",
+                          "controlAddress": "/command"
+                        }
+                      ],
+                      "paramLinks": {}
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequencesOff": { "viewOffset": [0, 0], "viewZoom": 1.0 }
+            },
+            {
+              "parameters": [{ "value": true, "controlAddress": "/enabled" }],
+              "niceName": "onFaderToCommand",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "im": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/x_touch_One/values/_1_CC70",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "Input Value",
+                    "type": "Input Value"
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "params": {
+                "parameters": [
+                  {
+                    "value": 50,
+                    "hexMode": false,
+                    "controlAddress": "/updateRate"
+                  }
+                ],
+                "editorIsCollapsed": true
+              },
+              "filters": {
+                "items": [
+                  {
+                    "niceName": "Interpolate value between 0-100",
+                    "type": "Remap",
+                    "filterParams": {
+                      "parameters": [
+                        {
+                          "value": true,
+                          "controlAddress": "/useCustomInputRange"
+                        },
+                        {
+                          "value": [0.0, 127.0000762939453],
+                          "controlAddress": "/inputMin_Max"
+                        },
+                        {
+                          "value": [0.0, 100.0000610351562],
+                          "controlAddress": "/targetMin_Max"
+                        },
+                        { "value": false, "controlAddress": "/forceFloat" }
+                      ],
+                      "paramLinks": {}
+                    }
+                  },
+                  {
+                    "niceName": "Prefix with command",
+                    "type": "Convert To String",
+                    "filterParams": {
+                      "parameters": [
+                        { "value": "", "controlAddress": "/retargetComponent" },
+                        {
+                          "value": 0,
+                          "hexMode": false,
+                          "controlAddress": "/numberOfDecimals"
+                        },
+                        {
+                          "value": "pamixer --set-volume ",
+                          "controlAddress": "/prefix"
+                        }
+                      ],
+                      "paramLinks": {}
+                    },
+                    "ghostOptions": { "retarget": null }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "parameters": [
+                      { "value": true, "controlAddress": "/enabled" }
+                    ],
+                    "niceName": "Run command",
+                    "type": "BaseItem",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "paramLinks": {
+                        "command": { "linkType": 1, "mappingValueIndex": 0 }
+                      }
+                    }
+                  },
+                  {
+                    "parameters": [
+                      { "value": false, "controlAddress": "/enabled" }
+                    ],
+                    "niceName": "MappingOutput",
+                    "editorIsCollapsed": true,
+                    "type": "BaseItem",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "pamixer --set-volume {input:0}",
+                          "controlAddress": "/command"
+                        }
+                      ],
+                      "paramLinks": {}
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              }
+            },
+            {
+              "parameters": [{ "value": true, "controlAddress": "/enabled" }],
+              "niceName": "onKnobToCommand",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "im": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/x_touch_One/values/_1_CC80",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "Input Value",
+                    "type": "Input Value"
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "params": {
+                "parameters": [
+                  {
+                    "value": 50,
+                    "hexMode": false,
+                    "controlAddress": "/updateRate"
+                  }
+                ],
+                "editorIsCollapsed": true
+              },
+              "filters": {
+                "items": [
+                  {
+                    "niceName": "Interpolate value between 0-1",
+                    "type": "Remap",
+                    "filterParams": {
+                      "parameters": [
+                        {
+                          "value": true,
+                          "controlAddress": "/useCustomInputRange"
+                        },
+                        {
+                          "value": [0.0, 127.0000762939453],
+                          "controlAddress": "/inputMin_Max"
+                        },
+                        {
+                          "value": [0.0, 1.0],
+                          "controlAddress": "/targetMin_Max"
+                        },
+                        { "value": true, "controlAddress": "/forceFloat" }
+                      ],
+                      "paramLinks": {}
+                    }
+                  },
+                  {
+                    "niceName": "Prefix with command",
+                    "type": "Convert To String",
+                    "filterParams": {
+                      "parameters": [
+                        { "value": "", "controlAddress": "/retargetComponent" },
+                        {
+                          "value": 0,
+                          "hexMode": false,
+                          "controlAddress": "/numberOfDecimals"
+                        },
+                        {
+                          "value": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:'org.mpris.MediaPlayer2.Player' string:'Volume' variant:double:",
+                          "controlAddress": "/prefix"
+                        }
+                      ],
+                      "paramLinks": {}
+                    },
+                    "ghostOptions": { "retarget": null }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "parameters": [
+                      { "value": true, "controlAddress": "/enabled" }
+                    ],
+                    "niceName": "Run command",
+                    "type": "BaseItem",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "paramLinks": {
+                        "command": { "linkType": 1, "mappingValueIndex": 0 }
+                      }
+                    }
+                  },
+                  {
+                    "parameters": [
+                      { "value": false, "controlAddress": "/enabled" }
+                    ],
+                    "niceName": "MappingOutput",
+                    "editorIsCollapsed": true,
+                    "type": "BaseItem",
+                    "commandModule": "os",
+                    "commandPath": "Process",
+                    "commandType": "Launch Command",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "pamixer --set-volume {input:0}",
+                          "controlAddress": "/command"
+                        }
+                      ],
+                      "paramLinks": {}
+                    }
+                  }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              }
+            }
+          ],
+          "viewOffset": [0, 0],
+          "viewZoom": 1.0
+        }
+      },
+      {
+        "parameters": [
+          { "value": false, "controlAddress": "/enabled" },
+          { "value": [-1.0, -895.0], "controlAddress": "/viewUIPosition" },
+          { "value": true, "controlAddress": "/active" }
+        ],
+        "niceName": "onOSSignal",
+        "type": "State",
+        "processors": {
+          "items": [
+            {
+              "parameters": [{ "value": false, "controlAddress": "/enabled" }],
+              "niceName": "Action",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  { "niceName": "From Input Value", "type": "From Input Value" }
+                ],
+                "viewOffset": [0, 0],
+                "viewZoom": 1.0
+              },
+              "consequences": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+              "consequencesOff": { "viewOffset": [0, 0], "viewZoom": 1.0 }
+            }
+          ],
+          "viewOffset": [0, 0],
+          "viewZoom": 1.0
+        }
+      }
+    ],
+    "viewOffset": [0, 776],
+    "viewZoom": 1.0,
+    "transitions": {
+      "hideInEditor": true,
+      "viewOffset": [0, 0],
+      "viewZoom": 1.0
+    },
+    "comments": {
+      "hideInEditor": true,
+      "viewOffset": [0, 776],
+      "viewZoom": 1.0
+    }
+  },
+  "sequences": { "viewOffset": [0, 0], "viewZoom": 1.0 },
+  "routers": { "viewOffset": [0, 0], "viewZoom": 1.0 }
+}
